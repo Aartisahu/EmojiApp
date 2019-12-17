@@ -4,15 +4,23 @@ import PropTypes from "prop-types";
 export default class AppNew extends Component {
   
   static propTypes = {
-    detail: PropTypes.object
+    details: PropTypes.object
   };
 
   render(){
-    console.log(this.props);
+    const data = this.props.location.state.details
     return(
       <div>
-        helloooooo
-        {this.props.keywords}
+        {data &&
+           <div>
+            <ul>
+           
+              <li>{data.symbol}</li>
+              <li>{data.title}</li>
+              <li>{data.keywords}</li>
+            </ul>
+           </div>
+        }
        </div>
     )
 

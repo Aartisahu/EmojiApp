@@ -10,10 +10,9 @@ export default class EmojiResultsRow extends PureComponent {
   };
 
   handleClick = (details) => {
-    console.log(details)
     history.push({
-      pathname:'/appnew',
-      state: details
+      pathname:'/appnew/'+details.title,
+      state: {details: details}
     })
   }
 
@@ -23,9 +22,10 @@ export default class EmojiResultsRow extends PureComponent {
     return (
       <div
         className="component-emoji-result-row copy-to-clipboard"
-        data-clipboard-text={this.props.symbol}
+        onClick={ () => this.handleClick(this.props)
+        }
       >
-        <button  onClick={ () => this.handleClick(this.props)} >route</button>
+       
         <img alt={this.props.title} src={src} />
         <span className="title">{this.props.title}</span>
         <span className="info">Click to copy emoji</span>

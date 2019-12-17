@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import AppNew from "./AppNew"; 
+import AppNew from "./AppNew";
 import history from './history';
 import "github-fork-ribbon-css/gh-fork-ribbon.css";
 import {
@@ -13,7 +13,6 @@ import {
 const router = (
   <Router  history={history}>
     <Route exact path='/' component={App}></Route>
-    <Route path="/appnew" component={() => <AppNew />} /> 
-
+    <Route exact path='/appnew/:title'  component={AppNew}></Route>
   </Router>)
 ReactDOM.render(router, document.getElementById("root"));
